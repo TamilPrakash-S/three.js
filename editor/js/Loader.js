@@ -251,6 +251,10 @@ function Loader( editor ) {
 					const loader = new FBXLoader( manager );
 					const object = loader.parse( contents );
 
+						object.traverse(e=>{
+							e.castShadow = true;
+							e.receiveShadow = true;
+						});
 					editor.execute( new AddObjectCommand( editor, object ) );
 
 				}, false );
@@ -274,7 +278,10 @@ function Loader( editor ) {
 
 						const scene = result.scene;
 						scene.name = filename;
-
+						scene.traverse(e=>{
+							e.castShadow = true;
+							e.receiveShadow = true;
+						});
 						scene.animations.push( ...result.animations );
 						editor.execute( new AddObjectCommand( editor, scene ) );
 
