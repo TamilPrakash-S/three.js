@@ -281,6 +281,7 @@ function Loader( editor ) {
 						scene.traverse(e=>{
 							e.castShadow = true;
 							e.receiveShadow = true;
+							console.log(e);
 						});
 						scene.animations.push( ...result.animations );
 						editor.execute( new AddObjectCommand( editor, scene ) );
