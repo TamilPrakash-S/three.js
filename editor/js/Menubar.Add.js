@@ -357,7 +357,7 @@ function MenubarAdd( editor ) {
 
 		const light = new THREE.AmbientLight( color );
 		light.name = 'AmbientLight';
-
+		light.castShadow = true;
 		editor.execute( new AddObjectCommand( editor, light ) );
 
 	} );
@@ -375,6 +375,7 @@ function MenubarAdd( editor ) {
 
 		const light = new THREE.DirectionalLight( color, intensity );
 		light.name = 'DirectionalLight';
+		light.castShadow = true;
 		light.target.name = 'DirectionalLight Target';
 
 		light.position.set( 5, 10, 7.5 );
@@ -397,6 +398,7 @@ function MenubarAdd( editor ) {
 
 		const light = new THREE.HemisphereLight( skyColor, groundColor, intensity );
 		light.name = 'HemisphereLight';
+		light.castShadow = true;
 
 		light.position.set( 0, 10, 0 );
 
@@ -418,6 +420,7 @@ function MenubarAdd( editor ) {
 
 		const light = new THREE.PointLight( color, intensity, distance );
 		light.name = 'PointLight';
+		light.castShadow = true;
 
 		editor.execute( new AddObjectCommand( editor, light ) );
 
@@ -439,6 +442,7 @@ function MenubarAdd( editor ) {
 
 		const light = new THREE.SpotLight( color, intensity, distance, angle, penumbra );
 		light.name = 'SpotLight';
+		light.castShadow = true;
 		light.target.name = 'SpotLight Target';
 
 		light.position.set( 5, 10, 7.5 );
